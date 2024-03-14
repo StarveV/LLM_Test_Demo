@@ -21,8 +21,6 @@ st.set_page_config(page_title="LLM Testing", page_icon="💬", layout='wide')
 # --- Side bar logo ---
 
 current_dir = os.getcwd() 
-iqvia_logo_path = os.path.join(current_dir, "iqvia_logo3_1.png")
-add_logo(logo_url=iqvia_logo_path,height=60)
 
 # --- css customisation --- 
 # MainMenu {visibility: hidden;}
@@ -50,13 +48,13 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-st.title("💬 Pricing Team LLM Asistance2") 
+st.title("💬 LLM Asistance2") 
 
 clear_button = st.sidebar.button("Clear Conversation", key="clear")
 if clear_button or "messages" not in st.session_state:
     st.session_state.messages = [
             SystemMessage(
-                content="You are helpful assistance. Your name is PCICE.")
+                content="You are helpful assistance. Your name is AI.")
         ]
 
 llm_model_path = os.path.join(current_dir, ".models","phi-2.Q5_K_M.gguf")
@@ -135,7 +133,7 @@ def llama_v2_prompt(messages: List[dict]) -> str:
     B_INST, E_INST = "[INST]", "[/INST]"
     B_SYS, E_SYS = "<<SYS>>\n", "\n<</SYS>>\n\n"
     BOS, EOS = "<s>", "</s>"
-    DEFAULT_SYSTEM_PROMPT = f"""Your name is TOM. Your are a friendly assistant call PRICE. Responce helpfully but do not responce with false information """
+    DEFAULT_SYSTEM_PROMPT = f"""Your name is TOM. Your are a friendly assistant call AI. Responce helpfully but do not responce with false information """
 
     if messages[0]["role"] != "system":
         messages = [
